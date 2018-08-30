@@ -361,10 +361,11 @@ disqus:
 #hypercomments_id:
 
 # changyan
+# cytMeQ223  ce14f400d909b2672a6ccf14e8a59498
 changyan:
   enable: false
-  appid:
-  appkey:
+  appid: cytMeQ223
+  appkey: ce14f400d909b2672a6ccf14e8a59498
 
 
 # Valine.
