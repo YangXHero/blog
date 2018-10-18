@@ -10,13 +10,15 @@ categories:
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 
 src="//music.163.com/outchain/player?type=2&id=247421&auto=1&height=66"></iframe>
 
+注意。rpm包必须在官网或其他地址下载。直接wget 官网下载链接会报错。
+
 #### 1. 这里采用rpm安装方式。先下载rpm文件。
 
 #### 2. 下载到本地，通过shell使用rz命令上传至服务器。
     如果出现如下错误：`-bash: rz: command not found`
-    
+
     安装lrzsz：`yum -y install lrzsz`
-    
+
     现在就可以正常使用rz、sz命令上传、下载数据了。
     使用方法：
     上传文件: rz 会弹出对话框，选择文件上传
