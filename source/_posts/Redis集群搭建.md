@@ -7,7 +7,7 @@ categories:
     - 安装教程
 ---
 
-#### 1.安装搭建集群所需要的环境。
+#### 1. 安装搭建集群所需要的环境。
     命令行运行：
          yum -y install gcc psmisc
 
@@ -61,7 +61,7 @@ categories:
         :%s/7001/7002/g
         改五次。
 
-#### 5. 搭建集群 --- 安装集群所需的依赖环境。
+#### 6. 搭建集群 --- 安装集群所需的依赖环境。
     yum -y install ruby rubygems
     gem install redis
     如果提示： redis requires Ruby version >= 2.2.2.
@@ -81,13 +81,13 @@ categories:
     如果不成功，百度搜升级ruby。
         gem install redis
 
-#### 6.如果加了密码，修改client.rb文件。
+#### 7. 如果加了密码，修改client.rb文件。
     find / -name client.rb
     找到路径中包含redis版本号那个。
     vim 文件。
 {% asset_img 001.png 修改连接密码 %}
 
-#### 7. 批处理文件启动redis。
+#### 8. 批处理文件启动redis。
     vim redis-start.sh
 ```shell
 cd /usr/local/redis-cluster/7001/
@@ -127,7 +127,7 @@ rm -rf nodes-7006.conf
 ```
     chmod +x redis-remove.sh
 
-#### 8. 集群搭建，启动集群
+#### 9. 集群搭建，启动集群
     ./redis-start.sh
     如果是云服务器，先放开端口 7001-7006  和 17001-17006
     ./redis-trib.rb create --replicas 1 127.0.0.1:7001 127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 127.0.0.1:7006
