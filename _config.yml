@@ -105,6 +105,6 @@ search:
 deploy:
   type: git
   repository:
-    github: git@github.com:YangXHero/yangxhero.github.io.git
-    coding: git@git.coding.net:yangkai92/yangkai92.git
+    github: https://github.com/YangXHero/yangxhero.github.io.git
+    coding: https://git.coding.net/yangkai92/yangkai92.git
   branch: master
