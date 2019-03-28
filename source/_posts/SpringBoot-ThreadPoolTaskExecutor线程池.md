@@ -10,7 +10,7 @@ categories:
  ThreadPoolTaskExecutor是一个Spring的线程池技术，它是使用jdk中的java.util.concurrent.ThreadPoolExecutor进行实现。 
 {% endblockquote %}
 
-####ThreadPoolTaskExecutor的参数：
+#### ThreadPoolTaskExecutor的参数：
     
     int corePoolSize:线程池维护线程的最小数量. 
     int maximumPoolSize:线程池维护线程的最大数量. 
@@ -21,7 +21,7 @@ categories:
         一是在execute方法中若addIfUnderMaximumPoolSize(command)为false，即线程池已经饱和； 
         二是在execute方法中, 发现runState!=RUNNING || poolSize == 0,即已经shutdown,就调用ensureQueuedTaskHandled(Runnable command)，在该方法中有可能调用reject。
         
-####ThredPoolTaskExcutor的处理流程：
+#### ThredPoolTaskExcutor的处理流程：
 
     1.当池子大小小于corePoolSize，就新建线程，并处理请求
     2.当池子大小等于corePoolSize，把请求放入workQueue中，池子里的空闲线程就去workQueue中取任务并处理
@@ -31,7 +31,7 @@ categories:
     其会优先创建  CorePoolSiz 线程， 当继续增加线程时，先放入Queue中，当 CorePoolSiz  和 Queue 都满的时候，就增加创建新线程，当线程达到MaxPoolSize的时候，就会抛出错 误 org.springframework.core.task.TaskRejectedException
     另外MaxPoolSize的设定如果比系统支持的线程数还要大时，会抛出java.lang.OutOfMemoryError: unable to create new native thread 异常。
     
-####Reject策略预定义有四种： 
+#### Reject策略预定义有四种： 
     (1)ThreadPoolExecutor.AbortPolicy策略，是默认的策略,处理程序遭到拒绝将抛出运行时 RejectedExecutionException。 
     (2)ThreadPoolExecutor.CallerRunsPolicy策略 ,调用者的线程会执行该任务,如果执行器已关闭,则丢弃. 
     (3)ThreadPoolExecutor.DiscardPolicy策略，不能执行的任务将被丢弃. 
@@ -40,7 +40,7 @@ categories:
 #### 使用。
 
 ##### SpringBoot  Config
-1.创建，初始化。
+###### 创建，初始化。
 ```Java
     /**
      *  默认线程池线程池
@@ -70,7 +70,7 @@ categories:
         return executor;
     }
 ```
-2.使用方式。
+###### 使用方式。
     
     第一种方式：@Async 注解。
         注： @Async所修饰的函数不要定义为static类型，这样异步调用不会生效
