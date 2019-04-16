@@ -32,10 +32,14 @@ categories:
     另外MaxPoolSize的设定如果比系统支持的线程数还要大时，会抛出java.lang.OutOfMemoryError: unable to create new native thread 异常。
     
 #### Reject策略预定义有四种： 
-    (1)ThreadPoolExecutor.AbortPolicy策略，是默认的策略,处理程序遭到拒绝将抛出运行时 RejectedExecutionException。 
-    (2)ThreadPoolExecutor.CallerRunsPolicy策略 ,调用者的线程会执行该任务,如果执行器已关闭,则丢弃. 
-    (3)ThreadPoolExecutor.DiscardPolicy策略，不能执行的任务将被丢弃. 
-    (4)ThreadPoolExecutor.DiscardOldestPolicy策略，如果执行程序尚未关闭，则位于工作队列头部的任务将被删除，然后重试执行程序（如果再次失败，则重复此过程）.
+    (1)ThreadPoolExecutor.AbortPolicy策略，是默认的策略,
+    处理程序遭到拒绝将抛出运行时 RejectedExecutionException。 
+    (2)ThreadPoolExecutor.CallerRunsPolicy策略 ,
+    调用者的线程会执行该任务,如果执行器已关闭,则丢弃. 
+    (3)ThreadPoolExecutor.DiscardPolicy策略，
+    不能执行的任务将被丢弃. 
+    (4)ThreadPoolExecutor.DiscardOldestPolicy策略，如果执行程序尚未关闭，
+    则位于工作队列头部的任务将被删除，然后重试执行程序（如果再次失败，则重复此过程）.
     
 #### 使用。
 
