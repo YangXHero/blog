@@ -19,14 +19,15 @@ categories:
 
         上一个命令将install_solr_service.sh脚本从存档中提取到当前目录中
         
-3. mkdir /opt/module/solr2 
-4. mkdir /opt/module/solr
-5. 运行服务安装脚本:
+        mkdir /opt/module/solr2 
+        mkdir /opt/module/solr
+
+3. 运行服务安装脚本:
     
-        bash ./install_solr_service.sh solr-7.7.1.tgz -i /opt/module/solr -d /opt/module/solr/solrname -u solr -s solr -p 8983
-        bash ./install_solr_service.sh solr-7.7.1.tgz -i /opt/module/solr2 -d /opt/module/solr2/solrname -u solr -s solr2 -p 8984
+        bash ./install_solr_service.sh solr-7.7.1.tgz -i /opt/module/solr -d /opt/module/solr/solrhome -u solr -s solr -p 8983
+        bash ./install_solr_service.sh solr-7.7.1.tgz -i /opt/module/solr2 -d /opt/module/solr2/solrhome -u solr -s solr2 -p 8984
         
-6. 修改对应jetty服务的端口8983/8984
+4. 修改对应jetty服务的端口8983/8984
    
         vi  /opt/module/solr/solrhome/data/solr.xml 
         vi  /opt/module/solr2/solrhome/data/solr.xml 
@@ -55,6 +56,11 @@ categories:
 #### 关联solr集群与zk集群
 1. vi /etc/default/solr.in.sh
 2. vi /etc/default/solr2.in.sh
+
+        修改如下信息（对应主机host注意更改）：
+        ZK_HOST="node21:2181,node22:2181,node23:2181/solr"
+        SOLR_HOST="192.168.100.21"
+
 3. 首次连接需要创建节点管理目录
         
         ./solr/bin/solr zk mkroot /solr -z hadoop5:2181,hadoop6:2181,hadoop7:2181
@@ -99,7 +105,8 @@ categories:
         cp ext.dic IKAnalyzer.cfg.xml stopword.dic /opt/module/solr2/solr-7.7.1/server/solr-webapp/webapp/WEB-INF/classes/
         
 3. 更改配置文件
-        
+
+        vim /opt/module/solr/solr-7.7.1/server/solr/configsets/_default/conf/managed-schema
         <!--IK中文分词器-->
          <fieldType name="text_ik" class="solr.TextField">  
                 <analyzer type="index" useSmart="false"
