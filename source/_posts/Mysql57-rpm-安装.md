@@ -48,9 +48,11 @@ mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '******';  自定义密码。
 Query OK, 0 rows affected (0	.00 sec)
 #### 7.设置允许远程登录
 Mysql默认不允许远程登录，我们需要设置下，并且防火墙开放3306端口；
-mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'Pingan369@' WITH GRANT OPTION;
+mysql> GRANT ALL PRIVILEGES ON *.* TO ‘root‘@’%’ IDENTIFIED BY ‘yzyjy123' WITH GRANT OPTION;
 Query OK, 0 rows affected, 1 warning (0.01 sec)
 mysql> exit;
+
+flush privileges
 
 #### 8.Mysql57 需要修改sql_mode。
         vi /etc/my.cnf
