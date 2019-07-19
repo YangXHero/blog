@@ -117,4 +117,14 @@ categories:
 4. 更新配置文件
 
         sh /opt/module/solr/solr-7.7.1/server/scripts/cloud-scripts/zkcli.sh -zkhost hadoop5:2181,hadoop6:2181,hadoop7:2181 -cmd upconfig -confdir /opt/module/solr/solr-7.7.1/server/solr/configsets/_default/conf/ -confname myconf
+       
+
+比如我们修改schema.xml配置文件之后，根本不用登录zookeeper删除原有文件，文件会自动覆盖，这里直接上传即可，命令如下：
+  
+        ./server/scripts/cloud-scripts/zkcli.sh -zkhost localhost:2181 -cmd putfile /solr/configs/my_config/schema.xml ../configs/conf/schema.xml
+参数putfile指定配置文件在zookeeper上的绝对路径，这里注意是配置的路径，不是collection的路径，二者名称不相同，后面跟的是修改之后本地schema.xml配置文件的路径
+
+重新加载配置文件
+ 
+        http://localhost:8983/solr/admin/collections?action=RELOAD&name=my_collection
         
