@@ -60,7 +60,7 @@ Vultr是美国的一个VPS服务商。
 #### 3. 一键搭建shaodowsocks
 
 ##### 3.1 下载一键搭建ss脚本文件（直接复制这段代码运行即可）
-    git clone https://github.com/lylnpu/flyzy2005-ss-fly.git
+    git clone https://github.com/YangXHero/flyzy2005-ss-fly.git
 {% asset_img 009.png 下载git代码 %}
 如果提示 `bash: git: command not found`，则先安装git：`yum install git -y`
 ##### 3.2 运行搭建ssr脚本代码
