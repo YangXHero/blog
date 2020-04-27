@@ -106,5 +106,5 @@ deploy:
   type: git
   repository:
     github: https://github.com/YangXHero/yangxhero.github.io.git
-    coding: https://git.coding.net/yangkai92/yangkai92.git
+    ##coding: https://git.coding.net/yangkai92/yangkai92.git
   branch: master

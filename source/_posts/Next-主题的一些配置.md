@@ -6,10 +6,6 @@ tags:
 categories:
     - Hexo
 ---
-
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 
-src="//music.163.com/outchain/player?type=2&id=26508186&auto=1&height=66"></iframe>
-
 主题的配置。该博客使用Next主题。首先安装主题，在跟目录下运行
     
 ```text

@@ -9,9 +9,53 @@ categories:
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 
 src="//music.163.com/outchain/player?type=2&id=28708061&auto=1&height=66"></iframe>
 
-#### 好不容易找着如何判断txt编码
+{% blockquote %}
+网上好多不完全，总有个别txt的编码获取不到。
+用这段代码，暂时没有发现问题。
+
+它在我的机器上可以很好运行！  -------大部分程序员
+{% endblockquote %}
+
+##### 部分TXT识别不了的版本
 ```java
-//判断编码格式方法
+    InputStream inputStream = new FileInputStream("g62.txt");
+    byte[] head = new byte[3];
+    inputStream.read(head);
+    String code = "GBK";
+    if (head[0] == -1  &&  head[1] == -2){
+        code = "UTF-16";
+    }else if (head[0] == -2  &&  head[1] == -1){
+        code = "Unicode";
+    }else if (head[0] == -17  && head[1] == -69 && head[2] == -65){
+        code = "UTF-8";
+    }
+    inputStream.close();
+
+```
+```java
+    BufferedInputStream bin = new BufferedInputStream(new FileInputStream("62.txt"));
+    int p = (bin.read() << 8) + bin.read();
+    
+    String code = null;
+    
+    switch (p) {
+        case 0xefbb:
+            code = "UTF-8";
+            break;
+        case 0xfffe:
+            code = "Unicode";
+            break;
+        case 0xfeff:
+            code = "UTF-16BE";
+            break;
+        default:
+            code = "GBK";
+    }
+    bin.close();
+```
+
+##### 未发现问题版本
+```Java
     private static  String getFileCharset(File sourceFile) {
         String charset = "GBK";
         byte[] first3Bytes = new byte[3];
