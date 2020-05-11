@@ -28,3 +28,5 @@ public class MyShiroRealm extends AuthorizingRealm {
     给Shiro认证器单独写一个Service。 
     
     有别的解决方式，请联系我。共同进步。
+    
+    找到了。shiroRealm 中引入Service时加 @Lazy注解。
