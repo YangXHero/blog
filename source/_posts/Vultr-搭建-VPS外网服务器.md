@@ -3,6 +3,7 @@ title: Vultr 搭建 VPS 外网ssr服务器
 date: 2018-11-06 11:07:24
 tags:
     - CentOS 服务搭建
+    - 科学上网
 categories:
     - CentOS
 ---
